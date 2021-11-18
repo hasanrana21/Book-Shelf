@@ -5,15 +5,6 @@ import axios from "axios";
 const Account = () => {
   const [getUser, setGetUser] = useState({});
   console.log(getUser);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://127.0.0.1:8000/api/accounts/me/")
-  //     .then((result) => {
-  //       console.log(result);
-  //       setGetUser(result);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
   axios
     .get("http://127.0.0.1:8000/api/accounts/me/")
     .then((res) => setGetUser(res.data))

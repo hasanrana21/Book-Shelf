@@ -5,8 +5,9 @@ import { useState } from "react/cjs/react.development";
 import axios from "axios";
 
 const Login = () => {
-  //   const [userInfo, setUserInfo] = useState({});
   const [userLogin, setUserLogin] = useState(false);
+  const [userToken, setUserToken] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -25,7 +26,7 @@ const Login = () => {
         console.log(res);
       })
       .catch((err) => {
-        console.log("User Already Created", err.message);
+        console.log(err);
       });
   };
 
@@ -35,28 +36,41 @@ const Login = () => {
         email: "aminul@gmail.com",
         password: "aminul1234",
       })
-      .then((res) => console.log("Alhamdulilah Successfully Login YaY!!", res))
+      .then((res) => {
+        console.log("Alhamdulilah Successfully Login YaY!!", res);
+        setUserToken(res.data.token);
+        localStorage.setItem("token", res.data.token);
+      })
       .catch((err) => console.log(err.message));
   };
 
   return (
-    <div className="my-12 mx-40 text-center">
-      <h1 className="text-4xl font-semibold text-center">Create an User</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        method="POST"
-        action="#"
-        className="form"
-      >
+    <div className="my-12 mx-auto form-wrapper">
+      <h4>{userToken}</h4>
+      <h1 className="text-4xl font-semibold text-center mb-6">
+        Register/Sign in
+      </h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {userLogin && <label>Name</label>}
         {userLogin && (
-          <input placeholder="Name" name="name" {...register("name")} />
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            {...register("name")}
+          />
         )}
         <label>Email</label>
-        <input placeholder="Email" name="email" {...register("email")} />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          {...register("email")}
+        />
 
         <label>Password</label>
         <input
+          type="password"
           placeholder="Password"
           name="password"
           {...register("password", { required: true })}
@@ -64,21 +78,23 @@ const Login = () => {
         {errors.password && <span>This field is required</span>}
 
         {/* <input type="submit" value={userLogin ? "Sign Up" : "Sign In"} /> */}
-        {userLogin && <input type="submit" value="Sign Up" />}
-        {userLogin === false && (
-          <input onClick={handleLogin} type="submit" value="Sign In" />
-        )}
+        <div className="w-44 mx-auto">
+          {userLogin && <input type="submit" value="Sign Up" />}
+          {userLogin === false && (
+            <input onClick={handleLogin} type="submit" value="Sign In" />
+          )}
+        </div>
       </form>
       <div>
-        <p class="text-lg">
+        <h6 className="text-lg">
           Do you have an account?
           <span
             className="cursor-pointer font-semibold text-lg underline ml-2"
             onClick={() => setUserLogin(!userLogin)}
           >
-            {userLogin ? "Sign In" : "Sign Up"}
+            {userLogin ? "Log In" : "Sign Up"}
           </span>
-        </p>
+        </h6>
       </div>
     </div>
   );
