@@ -1,0 +1,15 @@
+.profile-wrapper{
+    width: 50%;
+    @apply mx-auto my-12;
+}
+.profile-form input {
+    display: block;
+    box-sizing: border-box;
+    @apply text-3xl font-bold mb-6 px-4 py-2 text-black rounded-lg w-full;
+  }
+  
+  .profile-form label {
+    line-height: 2;
+    display: block;
+    @apply text-2xl font-semibold mt-4 mb-2 px-4 text-black;
+  }

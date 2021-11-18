@@ -1,12 +1,15 @@
 import React from "react";
 import "./Login.css";
 import { useForm } from "react-hook-form";
-import { useState } from "react/cjs/react.development";
+import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
   const [userLogin, setUserLogin] = useState(false);
   const [userToken, setUserToken] = useState("");
+  const [newUser, setNewUser] = useState({});
+  let history = useHistory();
 
   const {
     register,
@@ -14,12 +17,14 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // setUserInfo(data);
+    setNewUser(data);
     const userInfo = {
       email: data.email,
       password: data.password,
       name: data.name,
     };
+
+    // USER CREATE
     axios
       .post("http://127.0.0.1:8000/api/accounts/create/", userInfo)
       .then((res) => {
@@ -28,25 +33,22 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
 
-  const handleLogin = () => {
+    // USER TOKEN
     axios
-      .post("http://127.0.0.1:8000/api/accounts/token/", {
-        email: "aminul@gmail.com",
-        password: "aminul1234",
-      })
+      .post("http://127.0.0.1:8000/api/accounts/token/", userInfo)
       .then((res) => {
         console.log("Alhamdulilah Successfully Login YaY!!", res);
         setUserToken(res.data.token);
-        localStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("token", res.data.token);
       })
       .catch((err) => console.log(err.message));
   };
 
+  // REDIRECT ACCOUNT PAGE
+  
   return (
     <div className="my-12 mx-auto form-wrapper">
-      <h4>{userToken}</h4>
       <h1 className="text-4xl font-semibold text-center mb-6">
         Register/Sign in
       </h1>
@@ -77,13 +79,7 @@ const Login = () => {
         />
         {errors.password && <span>This field is required</span>}
 
-        {/* <input type="submit" value={userLogin ? "Sign Up" : "Sign In"} /> */}
-        <div className="w-44 mx-auto">
-          {userLogin && <input type="submit" value="Sign Up" />}
-          {userLogin === false && (
-            <input onClick={handleLogin} type="submit" value="Sign In" />
-          )}
-        </div>
+        <input type="submit" value={userLogin ? "Sign Up" : "Sign In"} />
       </form>
       <div>
         <h6 className="text-lg">
