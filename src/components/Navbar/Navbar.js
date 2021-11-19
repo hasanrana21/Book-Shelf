@@ -21,7 +21,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="mx-auto w-10/12 pt-6">
-        <ul className="menu flex justify-center space-x-12">
+        <ul className="menu flex justify-center space-x-10">
+          <li>
+            <Link to="/"> Home </Link>
+          </li>
           <li>
             <Link to="/book">Book</Link>
           </li>
