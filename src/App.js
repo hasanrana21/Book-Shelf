@@ -5,6 +5,7 @@ import Home from "./components/HomePage/Home/Home";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Account from "./components/Login/Account";
+import PlaceOrder from "./components/PlaceOrderPage/PlaceOrder";
 
 function App() {
   return (
@@ -15,10 +16,13 @@ function App() {
         <Route path="/account">
           <Account></Account>
         </Route>
-        <Route path="/">
+        <Route path="/login">
           <Login></Login>
         </Route>
-        <Route exact path="/book">
+        <Route path="/place-order/:id">
+          <PlaceOrder></PlaceOrder>
+        </Route>
+        <Route exact path="/">
           <Home></Home>
         </Route>
       </Switch>
