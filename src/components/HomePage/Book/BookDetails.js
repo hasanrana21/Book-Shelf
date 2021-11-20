@@ -5,7 +5,7 @@ const BookDetails = (props) => {
     // console.log(props.book)
     const details = props.book;
     return (
-        <div className="col-span-2 book cursor-pointer hover:shadow-lg p-4 border-2 border-gray-300 rounded-lg">
+        <div className="col-span-3 book cursor-pointer hover:shadow-lg p-4 border-2 border-gray-300 rounded-lg">
           <div className="w-40 mx-auto mb-2">
             <img
               src={details.image}

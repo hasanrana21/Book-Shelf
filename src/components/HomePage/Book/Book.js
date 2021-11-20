@@ -13,8 +13,8 @@ const Book = () => {
     setBooks(allBooks);
   },[])
   return (
-    <div className="mx-20 my-12">
-      <div className="grid grid-cols-12 gap-4 gap-x-4 gap-y-8">
+    <div>
+      <div className="grid grid-cols-12 gap-x-5 gap-y-8 px-8">
         {
           books.map((book, index) => <BookDetails book={book} key={index} ></BookDetails>)
         }

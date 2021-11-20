@@ -14,7 +14,8 @@ const PlaceOrder = () => {
     setReceiveBook(allBooks);
   }, [receiveBook]);
 
-  let getDetails = receiveBook.filter((book) => book.id === parseFloat(id)) || {};
+  let getDetails =
+    receiveBook.filter((book) => book.id === parseFloat(id)) || {};
   console.log(getDetails[0]);
   const getBookDetails = getDetails[0];
   return (
@@ -31,13 +32,29 @@ const PlaceOrder = () => {
             Tk. {getBookDetails?.beforePrice}
           </h4>
           <h4 className="text-3xl font-semibold">
-            Tk. {getBookDetails?.afterPrice} <span className="text-lg">You Save TK. 16 (5%)</span>
+            Tk. {getBookDetails?.afterPrice}{" "}
+            <span className="text-lg">You Save TK. 16 (5%)</span>
           </h4>
         </div>
-        <h6 class="text-xl">In Stock <span class="text-red-600">(number of copy's left)</span></h6>
+        <h6 class="text-xl">
+          In Stock <span class="text-red-600">(number of copy's left)</span>
+        </h6>
         <div class="my-6 space-x-11">
-            <button class="text-xl border-2 border-yellow-500 bg-yellow-500 text-white font-semibold px-9 py-4 rounded-lg ">Add to Cart</button>
-            <button class="text-xl border-2 border-green-500 text-green-500 font-semibold px-9 py-4 rounded-lg">Reading Somethings</button>
+          <button class="text-xl border-2 border-yellow-500 bg-yellow-500 text-white font-semibold px-9 py-4 rounded-lg ">
+            Add to Cart
+          </button>
+          <button class="text-xl border-2 border-green-500 text-green-500 font-semibold px-9 py-4 rounded-lg">
+            Reading Somethings
+          </button>
+        </div>
+      </div>
+      <div className="modal">
+        <div className="modalContent">
+          <iframe
+            title="readingFrame"
+            src="http://www.africau.edu/images/default/sample.pdf"
+            frameborder="5"
+          ></iframe>
         </div>
       </div>
     </div>
