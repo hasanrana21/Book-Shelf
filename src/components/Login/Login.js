@@ -2,7 +2,7 @@ import React from "react";
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useState } from "react/cjs/react.development";
 import axios from "axios";
 
 const Login = (props) => {

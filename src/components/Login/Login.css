@@ -33,19 +33,6 @@
   font-size: 18px;
 }
 
-.form-wrapper button[type="submit"],
-input[type="submit"] {
-  background: #ec5990;
-  text-transform-wrapper: uppercase;
-  border: none;
-  @apply rounded-full py-3 mt-6 px-12 text-xl font-bold cursor-pointer text-white;
-}
-
-.form-wrapper button[type="submit"]:hover,
-input[type="submit"]:hover {
-  background: #bf1650;
-}
-
 .form-wrapper button[type="submit"]:active,
 input[type="button"]:active,
 input[type="submit"]:active {

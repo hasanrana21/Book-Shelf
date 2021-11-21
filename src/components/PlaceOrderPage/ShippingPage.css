@@ -1,0 +1,21 @@
+.shipping-form {
+    @apply rounded-lg;
+  }
+  
+  .shipping-form p {
+    color: #bf1650;
+  }
+  
+  .shipping-form p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+  
+  .shipping-form input {
+    @apply text-xl px-2 py-2 border-2 border-gray-500 mt-2 mb-6 rounded w-full;
+  }
+  
+  .shipping-form label {
+    @apply text-xl text-black text-left;
+  }
+  

@@ -4,3 +4,8 @@
 .navbar-wrapper {
   background-color: white;
 }
+
+.profile-submenu li{
+  font-size: 21px;
+  @apply font-semibold py-2 text-gray-600 cursor-pointer;
+}

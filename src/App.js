@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Account from "./components/Login/Account";
 import PlaceOrder from "./components/PlaceOrderPage/PlaceOrder";
 import AddToCart from "./components/PlaceOrderPage/AddToCart";
+import ShippingPage from "./components/PlaceOrderPage/ShippingPage";
 
 function App() {
   return (
@@ -15,19 +16,22 @@ function App() {
 
       <Switch>
         <Route path="/account">
-          <Account></Account>
+          <Account/>
         </Route>
         <Route path="/login">
-          <Login></Login>
+          <Login/>
         </Route>
         <Route path="/place-order/:id">
-          <PlaceOrder></PlaceOrder>
+          <PlaceOrder/>
         </Route>
         <Route path="/add-to-cart">
-          <AddToCart></AddToCart>
+          <AddToCart/>
+        </Route>
+        <Route path="/shipping-page">
+          <ShippingPage/>
         </Route>
         <Route exact path="/">
-          <Home></Home>
+          <Home/>
         </Route>
       </Switch>
     </Router>
