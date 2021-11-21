@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import allBooks from "../../fakeData/books.json";
 import { useEffect } from "react/cjs/react.development";
 import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { id } = useParams();
@@ -40,15 +41,17 @@ const PlaceOrder = () => {
           In Stock <span class="text-red-600">(number of copy's left)</span>
         </h6>
         <div class="my-6 space-x-11">
-          <button class="text-xl border-2 border-yellow-500 bg-yellow-500 text-white font-semibold px-9 py-4 rounded-lg ">
-            Add to Cart
-          </button>
+          <Link to="/add-to-cart">
+            <button class="text-xl border-2 border-yellow-500 bg-yellow-500 text-white font-semibold px-9 py-4 rounded-lg ">
+              Add to Cart
+            </button>
+          </Link>
           <button class="text-xl border-2 border-green-500 text-green-500 font-semibold px-9 py-4 rounded-lg">
             Reading Somethings
           </button>
         </div>
       </div>
-      <div className="modal">
+      {/* <div className="modal">
         <div className="modalContent">
           <iframe
             title="readingFrame"
@@ -56,7 +59,7 @@ const PlaceOrder = () => {
             frameborder="5"
           ></iframe>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

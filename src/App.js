@@ -6,6 +6,7 @@ import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Account from "./components/Login/Account";
 import PlaceOrder from "./components/PlaceOrderPage/PlaceOrder";
+import AddToCart from "./components/PlaceOrderPage/AddToCart";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/place-order/:id">
           <PlaceOrder></PlaceOrder>
+        </Route>
+        <Route path="/add-to-cart">
+          <AddToCart></AddToCart>
         </Route>
         <Route exact path="/">
           <Home></Home>
